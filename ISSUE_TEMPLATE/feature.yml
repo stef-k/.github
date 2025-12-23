@@ -1,0 +1,56 @@
+# .github/ISSUE_TEMPLATE/feature.yml
+name: Feature request
+description: New feature or improvement
+title: "[Feature]: "
+labels: ["type: feature"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What do you want and why?
+      placeholder: "I want ... so that ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impacts
+    attributes:
+      label: Impacts
+      options:
+        - Backend
+        - Mobile
+        - Frontend
+        - Docs
+        - Infra
+        - Multiple / Cross-cutting
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Bullets that make it obvious when this is done.
+      placeholder: |
+        - ...
+        - ...
+    validations:
+      required: true
+
+  - type: input
+    id: links
+    attributes:
+      label: Related links (optional)
+      description: Other repo issues/PRs/docs
+      placeholder: "https://github.com/... or #123"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes (optional)
+      description: Anything else (ideas, screenshots, constraints)
+    validations:
+      required: false
