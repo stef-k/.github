@@ -2,7 +2,6 @@
 name: Feature request
 description: New feature or improvement
 title: "[Feature]: "
-labels: ["type: feature"]
 body:
   - type: textarea
     id: goal
@@ -10,20 +9,6 @@ body:
       label: Goal
       description: What do you want and why?
       placeholder: "I want ... so that ..."
-    validations:
-      required: true
-
-  - type: dropdown
-    id: impacts
-    attributes:
-      label: Impacts
-      options:
-        - Backend
-        - Mobile
-        - Frontend
-        - Docs
-        - Infra
-        - Multiple / Cross-cutting
     validations:
       required: true
 

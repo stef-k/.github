@@ -2,7 +2,7 @@
 
 ## Issues and ideas
 
-This is a spare-time. I’ll improve it when I can, but there’s no guaranteed schedule or roadmap.
+This is a spare-time project. I’ll improve it when I can, but there’s no guaranteed schedule or roadmap.
 
 - **Bugs and feature requests:** Feel free to open an issue. I’ll read them when I can, but I may not be able to respond or implement every request.
 - **Questions:** If the repo has Discussions enabled, please use them for Q&A.
@@ -25,4 +25,4 @@ If you believe you’ve found a security issue, please avoid opening a public is
 
 ## License
 
-This project is MIT-licensed and provided “as is” without warranty.
+Refer to the repository’s `LICENSE` file for its licensing terms.
