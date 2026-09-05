@@ -2,7 +2,6 @@
 name: Bug report
 description: Something is broken
 title: "[Bug]: "
-labels: ["type: bug"]
 body:
   - type: textarea
     id: what
@@ -28,6 +27,14 @@ body:
       label: Expected
     validations:
       required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Version / environment (optional)
+      description: Version, commit, OS, browser, runtime, device, or other relevant environment details.
+    validations:
+      required: false
 
   - type: textarea
     id: logs
