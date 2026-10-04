@@ -11,7 +11,7 @@ Projects opt in by defining docs/_data/navigation.yml with top-level "sections".
 
   {% for section in site.data.navigation.sections %}
     <section class="docs-nav-section">
-      <h2 class="docs-nav-section-title">{{ section.title | escape }}</h2>
+      <div class="docs-nav-section-title">{{ section.title | escape }}</div>
       <ul class="docs-nav-list">
         {% for item in section.items %}
           {% assign item_parts = item.url | split: '#' %}
