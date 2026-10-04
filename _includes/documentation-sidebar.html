@@ -10,7 +10,7 @@ Projects opt in by defining docs/_data/navigation.yml with top-level "sections".
   >Documentation home</a>
 
   {% for section in site.data.navigation.sections %}
-    <section class="docs-nav-section">
+    <div class="docs-nav-section">
       <div class="docs-nav-section-title">{{ section.title | escape }}</div>
       <ul class="docs-nav-list">
         {% for item in section.items %}
@@ -43,6 +43,6 @@ Projects opt in by defining docs/_data/navigation.yml with top-level "sections".
           </li>
         {% endfor %}
       </ul>
-    </section>
+    </div>
   {% endfor %}
 </nav>
