@@ -196,3 +196,157 @@ body {
 .markdown-body img {
   background-color: transparent;
 }
+
+
+/* Optional documentation sidebar.
+   Projects opt in with docs/_data/navigation.yml. */
+.docs-shell {
+  display: grid;
+  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.docs-content {
+  min-width: 0;
+  width: 100%;
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 1.5rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  padding-right: 1rem;
+  border-right: 1px solid #30363d;
+}
+
+.docs-navigation {
+  color: #c9d1d9;
+}
+
+.docs-nav-home,
+.docs-nav-link {
+  display: block;
+  color: #c9d1d9;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.docs-nav-home {
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.6rem;
+  font-weight: 600;
+}
+
+.docs-nav-section + .docs-nav-section {
+  margin-top: 1.25rem;
+}
+
+.docs-nav-section-title {
+  margin: 0 0 0.4rem;
+  padding: 0 0.6rem;
+  border: 0;
+  color: #8b949e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.docs-nav-list,
+.docs-nav-children {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.docs-nav-link {
+  margin: 0.1rem 0;
+  padding: 0.4rem 0.6rem;
+  border-left: 3px solid transparent;
+}
+
+.docs-nav-children {
+  margin-left: 0.7rem;
+}
+
+.docs-nav-link-child {
+  font-size: 0.95em;
+}
+
+.docs-nav-home:hover,
+.docs-nav-link:hover {
+  color: #58a6ff;
+  background: #161b22;
+}
+
+.docs-nav-home:focus-visible,
+.docs-nav-link:focus-visible,
+.docs-nav-mobile summary:focus-visible {
+  outline: 2px solid #58a6ff;
+  outline-offset: 2px;
+}
+
+.docs-nav-home.is-current,
+.docs-nav-link.is-current,
+.docs-nav-home[aria-current="page"],
+.docs-nav-link[aria-current="page"] {
+  color: #f0f6fc;
+  background: #161b22;
+  border-left-color: #58a6ff;
+  font-weight: 600;
+}
+
+.docs-nav-mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .docs-shell {
+    display: block;
+  }
+
+  .docs-sidebar {
+    display: none;
+  }
+
+  .docs-nav-mobile {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .docs-nav-mobile > summary {
+    cursor: pointer;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background: #161b22;
+    color: #f0f6fc;
+    font-weight: 600;
+  }
+
+  .docs-nav-mobile[open] > summary {
+    margin-bottom: 0.75rem;
+  }
+
+  .docs-nav-mobile > .docs-navigation {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 0.85rem;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background: #0d1117;
+  }
+}
+
+@media print {
+  .docs-sidebar,
+  .docs-nav-mobile {
+    display: none !important;
+  }
+
+  .docs-shell {
+    display: block;
+  }
+}
