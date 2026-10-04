@@ -11,13 +11,34 @@
     {% include head-custom.html %}
   </head>
   <body>
-    <div class="container-lg px-3 my-5 markdown-body">
-      {% if site.title and site.title != page.title %}
-      <h1><a href="{{ '/' | absolute_url }}">{{ site.title }}</a></h1>
-      {% endif %}
+    {% if site.data.navigation.sections %}
+      <div class="container-xl px-3 my-5 docs-shell">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          {% include documentation-sidebar.html %}
+        </aside>
 
-      {{ content }}
-    </div>
+        <details class="docs-nav-mobile">
+          <summary>Documentation navigation</summary>
+          {% include documentation-sidebar.html %}
+        </details>
+
+        <main class="markdown-body docs-content">
+          {% if site.title and site.title != page.title %}
+          <h1><a href="{{ '/' | absolute_url }}">{{ site.title }}</a></h1>
+          {% endif %}
+
+          {{ content }}
+        </main>
+      </div>
+    {% else %}
+      <div class="container-lg px-3 my-5 markdown-body">
+        {% if site.title and site.title != page.title %}
+        <h1><a href="{{ '/' | absolute_url }}">{{ site.title }}</a></h1>
+        {% endif %}
+
+        {{ content }}
+      </div>
+    {% endif %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>anchors.add();</script>
   </body>

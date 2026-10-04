@@ -1,0 +1,48 @@
+{% comment %}
+Optional shared documentation navigation.
+Projects opt in by defining docs/_data/navigation.yml with top-level "sections".
+{% endcomment %}
+<nav class="docs-navigation" aria-label="Documentation">
+  <a
+    class="docs-nav-home{% if page.url == '/' %} is-current{% endif %}"
+    href="{{ '/' | relative_url }}"
+    {% if page.url == '/' %}aria-current="page"{% endif %}
+  >Documentation home</a>
+
+  {% for section in site.data.navigation.sections %}
+    <div class="docs-nav-section">
+      <div class="docs-nav-section-title">{{ section.title | escape }}</div>
+      <ul class="docs-nav-list">
+        {% for item in section.items %}
+          {% assign item_parts = item.url | split: '#' %}
+          {% assign item_path = item_parts[0] %}
+          {% assign item_href = item_path | relative_url %}
+          <li class="docs-nav-item">
+            <a
+              class="docs-nav-link{% unless item_parts[1] %}{% if page.url == item_path %} is-current{% endif %}{% endunless %}"
+              href="{{ item_href }}{% if item_parts[1] %}#{{ item_parts[1] }}{% endif %}"
+              {% unless item_parts[1] %}{% if page.url == item_path %}aria-current="page"{% endif %}{% endunless %}
+            >{{ item.title | escape }}</a>
+
+            {% if item.children %}
+              <ul class="docs-nav-children">
+                {% for child in item.children %}
+                  {% assign child_parts = child.url | split: '#' %}
+                  {% assign child_path = child_parts[0] %}
+                  {% assign child_href = child_path | relative_url %}
+                  <li class="docs-nav-item">
+                    <a
+                      class="docs-nav-link docs-nav-link-child{% unless child_parts[1] %}{% if page.url == child_path %} is-current{% endif %}{% endunless %}"
+                      href="{{ child_href }}{% if child_parts[1] %}#{{ child_parts[1] }}{% endif %}"
+                      {% unless child_parts[1] %}{% if page.url == child_path %}aria-current="page"{% endif %}{% endunless %}
+                    >{{ child.title | escape }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</nav>
