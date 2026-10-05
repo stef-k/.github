@@ -202,8 +202,9 @@ body {
    Projects opt in with docs/_data/navigation.yml. */
 .docs-shell {
   display: grid;
-  grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
-  gap: 2rem;
+  max-width: 100rem;
+  grid-template-columns: minmax(13rem, 15rem) minmax(0, 1fr);
+  gap: 1.5rem;
   align-items: start;
 }
 
@@ -302,6 +303,30 @@ body {
   display: none;
 }
 
+/* Native fixed-position return link for long documentation pages. */
+.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #161b22;
+  color: #c9d1d9;
+  text-decoration: none;
+}
+
+.back-to-top:hover {
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid #58a6ff;
+  outline-offset: 2px;
+}
+
 @media (max-width: 900px) {
   .docs-shell {
     display: block;
@@ -342,7 +367,8 @@ body {
 
 @media print {
   .docs-sidebar,
-  .docs-nav-mobile {
+  .docs-nav-mobile,
+  .back-to-top {
     display: none !important;
   }
 
